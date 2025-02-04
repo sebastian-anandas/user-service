@@ -14,10 +14,19 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseModel {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date createdAt;
     private Date lastModifiedAt;
+    private boolean deleted;
 
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 }
